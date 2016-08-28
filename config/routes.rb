@@ -1,18 +1,8 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    get 'sessions/new'
-  end
+ get '/login' => 'admin/sessions#new'
 
   namespace :admin do
-    get 'sessions/create'
-  end
-
-  namespace :admin do
-    get 'sessions/destroy'
-  end
-
-  namespace :admin do
-
+  resources :sessions, only:[:new, :create, :destroy]
   resources :moderators, only: [:index, :edit, :update]
 
 end
