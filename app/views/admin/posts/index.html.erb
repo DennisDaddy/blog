@@ -1,6 +1,7 @@
 <h1>Admin::All Posts</h1>
 
 <p><%= link_to 'New Post', new_admin_post_path %></p>
+
 <table class="table table-bordered table-hover">
    <thead>
    <tr>
@@ -11,10 +12,11 @@
 	</tr>
 	</thead>
 	<tbody>
+	
 		<% @posts.each do |post| %>
 		<tr>
-			<td><%= truncate(post.title, length:65, separate: '') %></td>
-			<td><%= post.publish %></td>
+			<td><%= truncate(post.title, length:65, separate: '') %></td> 
+			<td><%=  status_converter(post.publish, truthy: 'Active', falsey: 'Pending') %></td>
 			<td>
 			<%= link_to 'Edit', edit_admin_post_path(post) %> |
 			<%= link_to 'Show', admin_post_path(post) %> |
@@ -23,5 +25,6 @@
 			
 		</tr>
 		<% end %>
+		
 	</tbody>
 </table> 
