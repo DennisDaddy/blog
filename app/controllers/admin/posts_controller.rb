@@ -4,7 +4,7 @@ class Admin::PostsController < Admin::ApplicationController
      if params[:search].present?
     @posts = Post.matching_title_or_content(params[:search])
     else
-    @posts = Post.all.order(id: :desc)
+    @posts = Post.all.order(id: :desc).page params[:page]
   end
   end
 
