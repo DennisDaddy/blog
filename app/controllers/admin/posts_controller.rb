@@ -13,9 +13,18 @@ class Admin::PostsController < Admin::ApplicationController
   end
 
   def create
+    @post = Post.new(post_params)
+    @post.moderator_id = current_moderator.id
+    if @post.save
+      redirect_to admin_posts_url, notice: 'post was successfully created'
+    else
+      flash[:alert] = 'There was a problem creating  a post'
+      render :new
+      
+    end
   end
 
-  def edit
+  def edit  
   end
 
   def update
@@ -27,5 +36,11 @@ class Admin::PostsController < Admin::ApplicationController
   end
 
   def destroy
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:id, :title, :content, :publish, tag_ids: [])
   end
 end
