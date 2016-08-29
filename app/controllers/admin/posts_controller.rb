@@ -2,7 +2,7 @@ class Admin::PostsController < Admin::ApplicationController
   def index
 
      if params[:search].present?
-    @posts = Post.where("title LIKE ? OR content LIKE ?","%#{params[:search]}%","%#{params[:search]}%")
+    @posts = Post.matching_title_or_content(params[:search])
     else
     @posts = Post.all.order(id: :desc)
   end
@@ -21,6 +21,8 @@ class Admin::PostsController < Admin::ApplicationController
   end
 
   def show
+     @post = Post.find(params[:id])
+
   end
 
   def destroy
