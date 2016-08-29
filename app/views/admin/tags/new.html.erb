@@ -1,2 +1,6 @@
-<h1>Admin::Tags#new</h1>
-<p>Find me in app/views/admin/tags/new.html.erb</p>
+<h1>Admin::New Tags</h1>
+<%= form_for [:admin, @tag] do |f| %>
+<p> <%= f.text_area :name, placeholder: 'e.g Ruby, Python, php' %></p>
+<p><%= f.submit %></p>
+<% end %>
+
