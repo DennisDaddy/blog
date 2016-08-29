@@ -9,6 +9,16 @@
   </head>
 
   <body>
+  <% if flash[:notice] %>
+  <div class="notice"> <%= flash[:notice] %></div>
+  <% end %>
+
+  <% if flash[:alert] %>
+  <div class="alert"><%= flash[:alert] %></div>
+  <% end %>
+  
+  <%=link_to 'log out', logout_path %>
+
     <%= yield %>
   </body>
 </html>
