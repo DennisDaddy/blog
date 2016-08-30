@@ -19,4 +19,5 @@ post = Post.create(
 
 tag = Tag.create(name:  Faker::Lorem.word)
 post_tag = PostTag.create(post: post, tag:tag)
-end
+
+end 
