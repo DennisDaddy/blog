@@ -1,17 +1,15 @@
 <h1>Comments</h1>
+<p> 
+<%= render 'search', route: admin_comments_path %>
 
-<p> <%= form_tag(admin_comments_path, method: :get) do %>
-<%= text_field_tag :search %>
-<%= submit_tag 'Search' %>
-<% end %>
  </p>
 
 
 <p><%= link_to 'Approved', admin_comments_path(status: true) %>
 <%= link_to 'Un-approved', admin_comments_path(status: false) %>
-	
 </p>
-<% @comment.each do |comment| %>
+
+<% @comments.each do |comment| %>
 <p><b><%= comment.visitor.fullname %></b>posted message on<b><%= comment.post.title %></b> </p>
 <p><%= comment.message %></p>
 <p><%= link_to 'Delete', admin_comments_path(coment), method: :delete, data: {confirm: 'Are you sure?'} %></p>
