@@ -1,2 +1,4 @@
-<h1>Admin::Messages#show</h1>
-<p>Find me in app/views/admin/messages/show.html.erb</p>
+<h1>Messages Show</h1>
+<P><b>From:</b> <%= @message.visitor.fullname %></P>
+<P><b>When:</b> <%= time_ago @message.created_at %></P>
+<P><b>Message:</b> <%=  @message.content %></P>
