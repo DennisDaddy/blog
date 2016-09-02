@@ -7,11 +7,14 @@ class Admin::MessagesController < ApplicationController
   end 
 
   def update
+  	@message = Message.find(params[:id])
+  	@message.update(status: params[:status])
+  	redirect_to :back, notice: 'successfully message updated'
   end
 
   def destroy
-  	@mesage = Message.find(params[:id])
-    @mesage.destroy
+  	@message = Message.find(params[:id])
+    @message.destroy
 
     redirect_to :back, notice: 'Message was successfully deleted'
   end
