@@ -2,6 +2,14 @@ Rails.application.routes.draw do
  
   
 
+  namespace :admin do
+    get 'notifications/index'
+  end
+
+  namespace :admin do
+    get 'notifications/destroy'
+  end
+
  get '/login' => 'admin/sessions#new'
  get '/logout' => 'admin/sessions#destroy'
   namespace :admin do
