@@ -2,6 +2,10 @@ Rails.application.routes.draw do
  
 
 
+  get 'posts/index'
+
+  get 'posts/show'
+
  get '/login' => 'admin/sessions#new'
  get '/logout' => 'admin/sessions#destroy'
   namespace :admin do
