@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
  
+  get 'comments/create'
+
  root to: 'posts#index'
  get '/login' => 'admin/sessions#new'
  get '/logout' => 'admin/sessions#destroy'
