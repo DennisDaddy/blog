@@ -1,11 +1,6 @@
 Rails.application.routes.draw do
  
 
-
-  get 'posts/index'
-
-  get 'posts/show'
-
  get '/login' => 'admin/sessions#new'
  get '/logout' => 'admin/sessions#destroy'
   namespace :admin do
@@ -21,6 +16,8 @@ Rails.application.routes.draw do
   resources :moderators, only: [:index, :edit, :update]
 
 end
+
+resources :posts
 
 match 'dismiss_all_notifications', to: 'admin/notifications#delete_all', via: :delete
 
