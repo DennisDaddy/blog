@@ -1,2 +1,19 @@
 <h1>Posts Show</h1>
 <%= link_to 'All Posts', posts_path %>
+<p>
+	<%= @post.title %><br>
+	<%= time_ago @post.created_at %>
+</p>
+
+<P>
+	<%= @post.content %>
+</P>
+<h3>Comments</h3>
+<p>
+<% @post.comments.each.with_index(1) do |comment, index| %>
+
+<%= comment.message %> <b><%= double_digit_number(index) %></b><br>
+<b><%= comment.visitor.fullname %></b> commented: <%= time_ago @post.created_at %>
+<% end %>
+</p>
+<hr>
