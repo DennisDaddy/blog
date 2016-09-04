@@ -11,7 +11,7 @@ class CommentsController < ApplicationController
   end
 
   if visitor.save
-  	flash[:notice] = "Successfully created new account"
+  	flash[:notice] = "Successfully created new comment"
   else
   	flash[:alert] = "There was a problem creating your comment"
   end
