@@ -3,7 +3,7 @@ class PostsController < ApplicationController
   	if params[:tag]
   		@posts = Post.filter_by_tags(params[:tag]).page(params[:page])
   		 else
-  	@posts =Post.where(publish: true).order(id: :desc).page(params[:page])
+  	@posts =Post.published.page(params[:page])
  
 end
 end
